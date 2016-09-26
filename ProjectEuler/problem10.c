@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+
+	int mil = 2000000;
+	int *numbers,i,j=0;
+	long sum = 0;	
+
+	numbers = malloc(mil * sizeof(int));
+
+	for(i = 0; i < mil; i++){
+		numbers[i] = 0;
+	}
+
+	for(i = 2; i < mil; i++){
+
+		if(numbers[i] == 0){
+			sum +=i;
+			j++;
+			for(int k = i; k < mil; k+=i){
+
+				numbers[k] = 1;
+			}
+		}
+	}
+
+	printf("Sum: %ld\n",sum);
+
+	free(numbers);
+
+	return 0;
+}

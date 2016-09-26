@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main(){
+
+	int num = 0;
+
+	typedef enum { false, true } bool;
+
+	bool found = false;	
+
+	while(bool == false){
+		

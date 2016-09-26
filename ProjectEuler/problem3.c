@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+
+	double bigN = 600851475;
+
+
+	static int *numbers, *primes, primeIndex = 0;
+
+	numbers = (int*) malloc( (bigN+1) * sizeof(int));
+	primes = (int*) malloc( (bigN+1) * sizeof(int));
+
+	for(int i = 2; i <= bigN; i ++){
+	//	printf("I: %d\n",i);
+		numbers[i] = 0;
+	}
+
+	for(int i = 2; i <= bigN; i++){
+	//printf("I2: %d\n",i);
+		if(numbers[i] == 0){
+			primes[primeIndex] = i;
+			primeIndex++;
+			for(int j = i; j <= bigN; j+=i)
+				numbers[j] = 1;
+		}
+	}
+
+	while((int)bigN%primes[primeIndex-1] != 0){
+		printf("%d\n",primes[primeIndex-1]);
+		primeIndex --;
+	}
+
+
+
+
+	return 0;
+}
